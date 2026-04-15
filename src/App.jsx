@@ -8,10 +8,9 @@ import axios from "axios";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");     // ← Yangi state
-  const [filteredProducts, setFilteredProducts] = useState([]); // ← Qidiruv natijasi
+  const [searchTerm, setSearchTerm] = useState("");     
+  const [filteredProducts, setFilteredProducts] = useState([]); 
 
-  // API dan ma'lumot olish
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +27,6 @@ function App() {
     fetchData();
   }, []);
 
-  // Qidiruv funksiyasi
   useEffect(() => {
     if (!searchTerm.trim()) {
       setFilteredProducts(products);
@@ -82,7 +80,6 @@ function App() {
               Katalog
             </button>
 
-            {/* 🔍 Qidiruv inputi - Yangilangan */}
             <div className="w-full lg:w-auto lg:flex-1 max-w-2xl">
               <form className="flex" onSubmit={(e) => e.preventDefault()}>
                 <input
